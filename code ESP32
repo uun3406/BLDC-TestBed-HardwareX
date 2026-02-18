@@ -1,0 +1,137 @@
+#include <Arduino.h>
+#include <Wire.h>
+#include <RTClib.h>
+#include <HX711.h>
+
+// Inisialisasi RTC
+RTC_DS3231 rtc;
+
+// UART2 ESC (optional jika ESC kirim data)
+HardwareSerial mySerial(2);
+
+// Load Cell
+#define LOADCELL_DOUT_PIN 4
+#define LOADCELL_SCK_PIN 5
+HX711 scale;
+
+// Throttle ADC & DAC
+const int throttlePin = 34;     // Input dari potensiometer throttle
+const int dacPin = 25;          // DAC output ke VOTOL (GPIO25)
+float weight = 0.0;
+int throttleValue = 0;
+int dacOutput = 0;
+unsigned long previousMillis = 0;
+const long interval = 1000;
+
+// HEX ESC optional (jika digunakan)
+const byte hexData1[] = {
+  0xC9, 0x14, 0x02, 0x4C, 0x44, 0x47, 0x45, 0x54,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x81, 0x0D
+};
+
+const byte hexData2[] = {
+  0xC9, 0x14, 0x02, 0x53, 0x48, 0x4F, 0x57, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xDC, 0x0D
+};
+
+// Fungsi cetak waktu
+void printTimestamp() {
+  DateTime now = rtc.now();
+  Serial.printf("%04d/%02d/%02d %02d:%02d:%02d ",
+                now.year(), now.month(), now.day(),
+                now.hour(), now.minute(), now.second());
+}
+
+// Task Load Cell
+void taskReadLoadCell(void *parameter) {
+  while (1) {
+    if (scale.is_ready()) {
+      weight = scale.get_units(3);
+      if (weight < 0) weight = 0;
+    }
+    vTaskDelay(pdMS_TO_TICKS(50));
+  }
+}
+
+// Task ESC optional: hanya aktif jika ESC VOTOL mengirim balik data UART
+void taskReadESC(void *parameter) {
+  while (1) {
+    if (mySerial.available() >= 24) {
+      byte response[24];
+      mySerial.readBytes(response, 24);
+
+      if (response[0] == 0xC0 && response[1] == 0x14 && response[23] == 0x0D) {
+        float voltage = (response[5] << 8 | response[6]) / 10.0;
+        uint16_t rawCurrent = (response[7] << 8) | response[8];
+        if (rawCurrent > 5000) rawCurrent = 0;
+        float current = rawCurrent / 10.0;
+        int rpm = (response[14] << 8 | response[15]);
+        int ctrlTemp = response[16] - 50;
+        int extTemp = response[17] - 50;
+
+        unsigned long nowMillis = millis();
+        if (nowMillis - previousMillis >= interval) {
+          previousMillis = nowMillis;
+          printTimestamp();
+          Serial.printf("%.1f V %.1f A %d RPM %d°C %d°C %.3f kg Throttle: %d DAC: %d\n",
+                        voltage, current, rpm, ctrlTemp, extTemp,
+                        weight, throttleValue, dacOutput);
+        }
+      }
+    }
+    vTaskDelay(pdMS_TO_TICKS(50));
+  }
+}
+
+void setup() {
+  Serial.begin(9600);
+  mySerial.begin(9600, SERIAL_8N1, 16, 17); // UART2 ke ESC (jika digunakan)
+  Wire.begin();
+
+  if (!rtc.begin()) {
+    Serial.println("RTC tidak ditemukan!");
+    while (1);
+  }
+
+  rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+
+  // Load cell
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+  Serial.println("Kalibrasi Load Cell...");
+  delay(2000);
+  scale.set_scale(223280.f);
+  scale.tare();
+
+  // Kirim HEX init (jika ESC VOTOL support protokol serial)
+  delay(1000);
+  mySerial.write(hexData1, sizeof(hexData1));
+  mySerial.flush();
+
+  // Task
+  xTaskCreatePinnedToCore(taskReadLoadCell, "TaskReadLoadCell", 2048, NULL, 1, NULL, 0);
+  xTaskCreatePinnedToCore(taskReadESC, "TaskReadESC", 2048, NULL, 1, NULL, 1);
+}
+
+void loop() {
+  throttleValue = analogRead(throttlePin);
+  throttleValue = constrain(throttleValue, 0, 4095);
+
+  // Konversi ke output DAC (range 0–255 → 0–3.3V)
+  //dacOutput = map(throttleValue, 0, 4095, 88, 255);  // Mapping kasar ke 0.8–2.85V
+  if (dacOutput < 128) 
+  {
+    dacWrite(25, dacOutput); // DAC di GPIO25 (atau bisa GPIO26)
+    dacWrite(dacPin, dacOutput);
+    dacOutput++;
+    delay(10); // Delay agar proses kenaikannya bisa diamati
+  }
+  //dacOutput = 1000;
+  //dacWrite(dacPin, dacOutput);                      // Output ke ESC VOTOL
+
+  mySerial.write(hexData2, sizeof(hexData2));
+  mySerial.flush();
+
+  vTaskDelay(pdMS_TO_TICKS(10));
+}
