@@ -1,0 +1,6 @@
+condition,voltage_V,current_A,rpm,esc_temp_C,reference_value,relative_error_percent
+voltage_no_load,52.3,0.8,1005,42,52.41,-0.21
+voltage_full_load,48.7,13.1,2988,58,48.82,-0.25
+current_25_load,52.0,4.2,1005,42,4.15,1.2
+current_50_load,50.5,8.7,1992,50,8.62,0.93
+current_75_load,48.7,13.1,2988,58,12.95,1.16

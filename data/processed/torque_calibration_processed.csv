@@ -1,0 +1,4 @@
+mass_kg,applied_torque_Nm,adc_counts,calibration_factor_Nm_per_count
+2.0,1.502,68765,2.184e-05
+5.0,3.755,171912,2.184e-05
+10.0,7.51,343824,2.184e-05

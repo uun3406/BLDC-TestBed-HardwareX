@@ -1,0 +1,4 @@
+load_condition,mechanical_torque_Nm,mechanical_sd_Nm,electrical_torque_Nm,electrical_sd_Nm,difference_percent
+Light 25%,1.18,0.03,1.15,0.04,2.6
+Medium 50%,3.76,0.04,3.65,0.05,3.0
+Heavy 75%,6.52,0.05,6.21,0.06,5.0

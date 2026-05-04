@@ -1,0 +1,5 @@
+mass_kg,lever_arm_m,angle_deg,adc_counts,applied_torque_Nm
+0,0.1,40,0,0
+2.0,0.1,40,68765,1.502
+5.0,0.1,40,171912,3.755
+10.0,0.1,40,343824,7.51
