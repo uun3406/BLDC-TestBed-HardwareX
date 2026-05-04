@@ -1,0 +1,16 @@
+- **1000 W BLDC mid-drive motor** (MTR-01): https://www.aliexpress.com/w/wholesale-mid-drive-motor.html
+- **Votol EM-50 controller with telemetry** (ESC-01): https://www.aliexpress.com/w/wholesale-Votol-EM-50.html
+- **ESP32 DevKit C** (MCU-01): https://www.amazon.it/dp/B0CT3BHJ4C
+- **20 kg single-point load cell** (SNS-01): https://www.alibaba.com/product-detail/Load-Cell-1KG-5KG-10KG-20KG_1601088855762.html
+- **HX711 24-bit ADC module** (SNS-02): https://www.aliexpress.com/w/wholesale-hx711-load-cell-sensor.html
+- **Mechanical disc brake set** (BRK-01): https://www.amazon.sg/dp/B0BM4RKZMY
+- **160 mm brake disc** (BRK-02): https://www.amazon.es/dp/B07WWT1QC3
+- **Steel shaft** (MCH-01): https://www.tokopedia.com/berkatjayasakti/as-20-mm-plat-strip-besi-as-silinder-pejal-diameter-20mm-panjang-1-meter
+- **Pillow block bearings** (MCH-02): https://www.kramp.com/shop-de/en/p/pillow-block-bearing-complete--UCP204GP
+- **Sprocket set** (MCH-03): https://www.aliexpress.com/w/wholesale-bicycle-sprocket-set.html
+- **LiFePO4 battery pack** (PWR-01): https://www.optimumnano-china.com/lifepo4-battery/64v-100ah-lithium-battery-pack-long-life-for.html
+- **Steel tubing** (FAB-01): https://www.tokopedia.com/rumahbesiwf/hollow-40x40-2mm-hollow-hitam-4x4-2-0mm-hollow-besi-biasa-6-meter
+- **Steel plate** (FAB-02): https://www.tokopedia.com/cvn-steel/plat-besi-5mm-5-mm-x-50-cm-x-100-cm
+- **Fasteners** (HWD-01): https://www.tokopedia.com/rumahbaut/tag/baut-m6?page=1
+- **Wiring and connectors** (WIR-01): https://www.aliexpress.com/w/wholesale-16awg-wire.html
+- **Project enclosure** (ENCL-01): https://www.aliexpress.com/w/wholesale-project-enclosure.html

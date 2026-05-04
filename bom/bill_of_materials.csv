@@ -1,0 +1,17 @@
+ID,Component,Description,Qty,Cost_USD_min,Cost_USD_max,Notes,Direct_URL
+MTR-01,1000 W BLDC mid-drive motor,BM1418ZXF or equivalent,1,110,130,48/60 V BLDC mid-drive motor,https://www.aliexpress.com/w/wholesale-mid-drive-motor.html
+ESC-01,Votol EM-50 controller with telemetry,ESC with 9600 baud telemetry,1,40,50,Ensure telemetry is enabled,https://www.aliexpress.com/w/wholesale-Votol-EM-50.html
+MCU-01,ESP32 DevKit C,30-pin development board,1,4,6,Arduino-compatible,https://www.amazon.it/dp/B0CT3BHJ4C
+SNS-01,20 kg single-point load cell,Kitchen-scale type,1,2,3,Torque reaction measurement,https://www.alibaba.com/product-detail/Load-Cell-1KG-5KG-10KG-20KG_1601088855762.html
+SNS-02,HX711 24-bit ADC module,Load cell amplifier,1,1,2,Interfaces load cell to ESP32,https://www.aliexpress.com/w/wholesale-hx711-load-cell-sensor.html
+BRK-01,Mechanical disc brake set,Mountain-bike type brake,1,18,25,Manual load application,https://www.amazon.sg/dp/B0BM4RKZMY
+BRK-02,160 mm brake disc,6-bolt standard disc,1,12,18,Load shaft brake disc,https://www.amazon.es/dp/B07WWT1QC3
+MCH-01,Steel shaft,Diameter 20 mm x 300 mm,1,8,12,Mild steel shaft,https://www.tokopedia.com/berkatjayasakti/as-20-mm-plat-strip-besi-as-silinder-pejal-diameter-20mm-panjang-1-meter
+MCH-02,Pillow block bearings,UCP204,2,6,8,Load shaft supports,https://www.kramp.com/shop-de/en/p/pillow-block-bearing-complete--UCP204GP
+MCH-03,Sprocket set,14T/22T with chain,1,10,15,Bicycle chain transmission,https://www.aliexpress.com/w/wholesale-bicycle-sprocket-set.html
+PWR-01,LiFePO4 battery pack,"64 V 100 Ah, 20S1P",1,200,250,Larger than needed for typical teaching labs,https://www.optimumnano-china.com/lifepo4-battery/64v-100ah-lithium-battery-pack-long-life-for.html
+FAB-01,Steel tubing,"40 x 40 x 2 mm, 6 m",1,15,25,Frame fabrication,https://www.tokopedia.com/rumahbesiwf/hollow-40x40-2mm-hollow-hitam-4x4-2-0mm-hollow-besi-biasa-6-meter
+FAB-02,Steel plate,150 x 100 x 5 mm,1,3,5,Motor mounting plate,https://www.tokopedia.com/cvn-steel/plat-besi-5mm-5-mm-x-50-cm-x-100-cm
+HWD-01,Fasteners,"Bolts, nuts, washers",1,8,12,M6 and M8 hardware,https://www.tokopedia.com/rumahbaut/tag/baut-m6?page=1
+WIR-01,Wiring and connectors,"16 AWG wires, fuse holder, terminals",1,5,10,Power and signal wiring,https://www.aliexpress.com/w/wholesale-16awg-wire.html
+ENCL-01,Project enclosure,Electronics enclosure,1,5,8,ESP32/HX711 enclosure,https://www.aliexpress.com/w/wholesale-project-enclosure.html
