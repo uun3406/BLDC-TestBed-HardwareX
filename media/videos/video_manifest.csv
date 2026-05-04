@@ -1,0 +1,7 @@
+filename,minimum_content,status,repository_location
+video_01_assembly_overview.mp4,"Frame, motor, chain, brake, load cell, ESC, ESP32 overview",hosted externally,Zenodo DOI 10.5281/zenodo.18689715
+video_02_torque_calibration.mp4,"Zeroing, known mass loading, verification mass",hosted externally,Zenodo DOI 10.5281/zenodo.18689715
+video_03_throttle_calibration.mp4,"DAC-side and ESC-side voltage at 0/25/50/75/100%",hosted externally,Zenodo DOI 10.5281/zenodo.18689715
+video_04_normal_operation.mp4,"Telemetry and torque logging during stable operation",hosted externally,Zenodo DOI 10.5281/zenodo.18689715
+video_05_load_step_test.mp4,"Manual brake load step and dynamic response",hosted externally,Zenodo DOI 10.5281/zenodo.18689715
+video_06_emergency_stop.mp4,"Emergency stop and zero-throttle behavior",hosted externally,Zenodo DOI 10.5281/zenodo.18689715
