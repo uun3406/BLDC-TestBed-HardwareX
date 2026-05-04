@@ -1,0 +1,9 @@
+Signal,ESP32 Pin,External Device,Notes
+ESC telemetry RX,GPIO16,Votol EM-50 TX,Use TTL-level serial at 9600 baud
+ESC telemetry TX,GPIO17,Votol EM-50 RX,Optional command or diagnostic line
+Throttle DAC,DAC1/GPIO25,ESC throttle input via scaling stage,0.0-3.3 V DAC adapted to 0.0-5.0 V ESC input
+HX711 DT,GPIO32,HX711 DT,Load-cell data pin
+HX711 SCK,GPIO33,HX711 SCK,Load-cell clock pin
+Emergency stop sense,GPIO27,E-stop/safety input,Input pull-up; active low in example firmware
+USB serial,USB,Host PC,Monitoring and data logging
+GND,GND,ESC/HX711/common ground,Common reference required
