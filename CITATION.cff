@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this hardware, firmware, or dataset, please cite the Zenodo archive and the associated HardwareX article."
+title: "An Open-Source BLDC Motor Test Bed Utilizing ESC Telemetry for Cost-Effective Educational Laboratories"
+authors:
+  - family-names: "Kurniawan"
+    given-names: "Uun Triyas Yuni"
+  - family-names: "Faridah"
+    given-names: "Faridah"
+    affiliation: "Universitas Gadjah Mada"
+doi: "10.5281/zenodo.18689715"
+url: "https://github.com/uun3406/BLDC-TestBed-HardwareX"
+repository-code: "https://github.com/uun3406/BLDC-TestBed-HardwareX"
+license: "CERN-OHL-S-2.0"
+version: "1.0.0"
+date-released: "2026-05-04"
+keywords:
+  - BLDC motor
+  - open-source hardware
+  - ESC telemetry
+  - ESP32
+  - dynamometer
+  - torque measurement
+  - engineering education

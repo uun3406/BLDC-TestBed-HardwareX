@@ -1,0 +1,10 @@
+SPDX-License-Identifier: CERN-OHL-S-2.0
+
+This repository contains open hardware design materials for the BLDC motor test bed. Hardware design files are licensed under the CERN Open Hardware Licence Version 2 - Strongly Reciprocal (CERN-OHL-S-2.0).
+
+The full license text is available from CERN:
+https://ohwr.org/cern_ohl_s_v2.txt
+
+Firmware and analysis scripts in this repository are provided for research and educational reproducibility. Unless a specific source file states otherwise, firmware and scripts may be reused, modified, and redistributed for non-commercial educational and research purposes with attribution to the authors and a reference to the associated HardwareX manuscript and Zenodo DOI.
+
+Copyright (c) 2026 The Authors.
